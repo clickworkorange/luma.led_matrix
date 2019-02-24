@@ -49,6 +49,7 @@ class device(object):
         self._buffer = [0] * self.NUM_DIGITS * self._cascaded
         self._spi = spidev.SpiDev()
         self._spi.open(spi_bus, spi_device)
+        self._spi.max_speed_hz = 500000
         self._vertical = vertical
 
         self.command(constants.MAX7219_REG_SCANLIMIT, 7)    # show all 8 digits
